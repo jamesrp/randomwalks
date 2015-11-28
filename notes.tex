@@ -1,0 +1,54 @@
+\documentclass[12pt]{amsart}
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Double cover time}
+
+\begin{document}
+\maketitle
+\section{Gambler's ruin lemmas}
+We begin with some easy facts about gambler's ruin - i.e., random walk on a line
+graph.
+In what follows, we consider a random walk on ${0, ..., n}$ with nearest neighbor
+adjacency.
+We start at $i$, take unbiased random steps left or right, and stop when we
+reach either $0$ or $n$.
+
+The first two results are commonly proved in introductory textbooks.
+One conditions on the first step and solves the resulting system of equations.
+
+\begin{lemma}
+$P(\textup{reach 0 first}) = \frac{n-i}{n}$.
+$P(\textup{reach $n$ first}) = \frac{i}{n}$.
+\end{lemma}
+
+Let $T$ be number of steps taken by the walk until it stops.
+
+\begin{lemma}
+$E(T) = i(n-i)$.
+\end{lemma}
+
+The next statement is elementary, with proof similar to the first two, but is
+not in most textbooks. 
+
+\begin{lemma}
+$E(T|\textup{reach 0 first}) = \frac{1}{3}i(2n-i)$.
+$E(T|\textup{reach $n$ first}) = \frac{1}{3}(n-i)(n+i)$.
+\end{lemma}
+\begin{proof}
+TODO
+\end{proof}
+
+\end{document}
