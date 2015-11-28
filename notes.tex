@@ -37,7 +37,8 @@ Let $T$ be number of steps taken by the walk until it stops.
 $E(T) = i(n-i)$.
 \end{lemma}
 
-The next statement is elementary, with proof similar to the first two, but is not in most textbooks. 
+The next statement is elementary, with proof similar to the first two, but is not in most textbooks.
+It must be known, but I could not find a reference, so I will prove it here.
 
 \begin{lemma}
 $E(T|\textup{reach 0 first}) = \frac{1}{3}i(2n-i)$.
@@ -45,7 +46,22 @@ $E(T|\textup{reach $n$ first}) = \frac{1}{3}(n-i)(n+i)$.
 \end{lemma}
 \begin{proof}
 The second statement follows from the first by the change of variables $i \mapsto n-i$.
-
+We will prove the first.
+Let $e_i = E(T|\textup{reach 0 first})$ if we start at $i$.
+Then $e_0 = 0$ and $e_{n-1} = 1 + e_{n-2}$.
+For $1 \le i \le n-2$, we can condition on the first step $s$.
+\begin{equation}
+e_i = 1 + e_{i-1}P(s=-1|\textup{reach 0 first}) + e_{i+1}P(s=1|\textup{reach 0 first})
+\end{equation}
+To compute these probabilities is a simple application of conditional probability formula and Lemma 1.1.
+For example:
+\begin{align*}
+P(s=-1|\textup{reach 0 first}) &= P(s=-1,\textup{reach 0 first}) / P(\textup{reach 0 first}) \\
+&= \left(\frac{1}{2} \cdot \frac{n-i+1}{n}\right)/\left(\frac{n-i}{n}\right) \\
+&= \frac{n-i+1}{2(n-i)}
+\end{align*}
+Substituting these into (1), we can observe that the resulting system of equations admits at most one solution.
+Therefore, we can simply check that $e_i = \frac{1}{3}i(2n-i)$ solves the system.
 \end{proof}
 
 \end{document}
